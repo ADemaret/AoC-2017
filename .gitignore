@@ -1,0 +1,6 @@
+/assets/*_input.txt
+/assets/*test*
+/enonces
+/src/*test*.rs
+/target
+scripts/cookie.txt
