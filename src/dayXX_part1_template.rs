@@ -36,8 +36,8 @@ mod tests {
     fn test_total() {
         assert_eq!(
             get_answer(include_str!("../assets/dayXX_input_demo1.txt")),
-            0
+            None
         );
-        // assert_eq!(get_answer(include_str!("../assets/dayXX_input.txt")), 0);
+        // assert_eq!(get_answer(include_str!("../assets/dayXX_input.txt")), None);
     }
 }
