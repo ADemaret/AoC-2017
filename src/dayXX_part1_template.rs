@@ -12,7 +12,11 @@ pub fn main() {
     //let input = include_str!("../assets/dayXX_input_demo1.txt");
     let input = include_str!("../assets/dayXX_input.txt");
 
-    println!("La réponse est {}", get_answer(input));
+    if let Some(answer) = get_answer(input) {
+        println!("The answer is : {}", answer);
+    } else {
+        println!("No answer found");
+    }
 
     let elapsed1 = now.elapsed();
     println!("Elapsed: {:.2?}", elapsed1);
@@ -20,8 +24,8 @@ pub fn main() {
 
 //
 
-fn get_answer(input: &str) -> usize {
-    0
+fn get_answer(input: &str) -> Option<usize> {
+    None
 }
 
 #[cfg(test)]
@@ -30,7 +34,10 @@ mod tests {
 
     #[test]
     fn test_total() {
-        assert_eq!(get_answer(include_str!("../assets/dayXX_input_demo1.txt")), 0);
-        assert_eq!(get_answer(include_str!("../assets/dayXX_input.txt")), 0);
+        assert_eq!(
+            get_answer(include_str!("../assets/dayXX_input_demo1.txt")),
+            0
+        );
+        // assert_eq!(get_answer(include_str!("../assets/dayXX_input.txt")), 0);
     }
 }
