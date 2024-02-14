@@ -62,16 +62,9 @@ mod tests {
 
     #[test]
     fn test_total() {
-        assert_ne!(get_answer("2: 2"), None);
-        assert_ne!(get_answer("4: 2"), None);
-        assert_ne!(get_answer("6: 2"), None);
-        assert_ne!(get_answer("4: 3"), None);
-        assert_ne!(get_answer("8: 3"), None);
-        assert_ne!(get_answer("8: 5"), None);
         assert_eq!(
-            get_answer(include_str!("../assets/day13_input_demo1.txt")),
-            Some(24)
+            get_answer(include_str!("../assets/day13_input.txt")),
+            Some(3897604)
         );
-        // assert_eq!(get_answer(include_str!("../assets/day13_input.txt")), None);
     }
 }

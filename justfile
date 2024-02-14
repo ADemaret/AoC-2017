@@ -13,6 +13,10 @@ part2 day:
 done_part2 day:
     ./scripts/done_part2.sh {{day}}
 
+test:
+    cargo run
+    cargo test
+
 done day:
     ./scripts/done_part1.sh {{day}}
     ./scripts/done_part2.sh {{day}}
