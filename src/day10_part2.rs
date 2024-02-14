@@ -26,7 +26,7 @@ pub fn main() {
 
 //
 
-fn get_answer(input: &str) -> String {
+pub fn get_answer(input: &str) -> String {
     // parse
     let (mut hash_list, lengths) = parse(input);
 
