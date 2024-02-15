@@ -14,8 +14,8 @@ done_part2 day:
     ./scripts/done_part2.sh {{day}}
 
 test:
-    cargo run
-    cargo test
+    cargo run --release
+    cargo test --release
 
 done day:
     ./scripts/done_part1.sh {{day}}
