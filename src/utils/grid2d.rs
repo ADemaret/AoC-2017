@@ -1,3 +1,4 @@
+#![allow(clippy::needless_range_loop)]
 ///
 /// Réécriture de grid (array 2D) en utilisant les vecteurs
 /// pour ne pas devoir fixer de taille en dur
@@ -365,7 +366,7 @@ impl fmt::Display for RegCell {
 }
 // end of RegCell
 fn set_neightbours(
-    grid_reg: &mut Vec<Vec<RegCell>>,
+    grid_reg: &mut [Vec<RegCell>],
     l: usize,
     c: usize,
     max_l: usize,
