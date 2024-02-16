@@ -21,3 +21,6 @@ test:
 done day:
     ./scripts/done_part1.sh {{day}}
     ./scripts/done_part2.sh {{day}}
+
+meld day:
+    meld ./src/day{{day}}_part1.rs ./src/day{{day}}_part2.rs
