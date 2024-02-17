@@ -9,7 +9,7 @@ use std::{collections::VecDeque, fmt};
 /// Au dessus de MAX_AFFICHAGE, print() ne fait rien
 const MAX_AFFICHAGE: usize = 99;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Grid2D {
     pub max_l: usize,
     pub max_c: usize,
@@ -278,12 +278,50 @@ impl Grid2D {
         }
     }
 
+    pub fn horizontal_symetry(self) -> Grid2D {
+        let mut new_grid = self.grid.clone();
+        for l in 0..self.max_l {
+            for c in (0..self.max_c).rev() {
+                new_grid[l][c] = self.grid[l][self.max_c - c - 1];
+            }
+        }
+        Grid2D {
+            max_l: self.max_c,
+            max_c: self.max_l,
+            grid: new_grid,
+        }
+    }
+
+    pub fn vertical_symetry(self) -> Grid2D {
+        let mut new_grid = self.grid.clone();
+        for l in 0..self.max_l {
+            for c in (0..self.max_c).rev() {
+                new_grid[l][c] = self.grid[self.max_l - l - 1][c];
+            }
+        }
+        Grid2D {
+            max_l: self.max_c,
+            max_c: self.max_l,
+            grid: new_grid,
+        }
+    }
+
     pub fn set_rect(&mut self, a: usize, b: usize, ch: char) {
         for c in 0..a {
             for l in 0..b {
                 self.grid[l][c] = ch;
             }
         }
+    }
+
+    pub fn get_portion(&self, l0: usize, l1: usize, c0: usize, c1: usize) -> Grid2D {
+        let mut new_grid = Grid2D::new_by_sizes(c1 - c0, l1 - l0, '.');
+        for l in l0..l1 {
+            for c in c0..c1 {
+                new_grid.grid[l - l0][c - c0] = self.grid[l][c];
+            }
+        }
+        new_grid
     }
 
     ///
